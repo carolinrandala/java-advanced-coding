@@ -25,6 +25,7 @@ public class Data {
         product.setAvailable(true);
         product.setCurrency(Currency.EUR);
 
+
         Product product1 = new Product();
         product1.setName("Black dotted Shirt");
         product1.setProductCategory(ProductCategory.CLOTHING);

@@ -11,8 +11,7 @@ import org.sda.java19.services.implementation.WarehouseServiceImpl;
 import org.sda.java19.util.Data;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * 2. Warehouse
@@ -46,8 +45,9 @@ public class Main {
         warehouse.setActive(true);
         warehouse.setProducts(Data.getInitialProducts());
 
-        warehouseService.addWarehouse(warehouse); // Adds new warehouse
 
+        warehouseService.addWarehouse(warehouse); // Adds new warehouse
+        List<String> shoppingBag = new ArrayList<>();
         productOperations();
     }
 
@@ -57,29 +57,65 @@ public class Main {
 
         int option = getOption();
 
-        switch(option) {
-            case 0: //Add a product
-                productService.addProduct(addProduct());
+        switch (option) {
+            case 1: //Add a product
+                productService.addProduct(addProduct(new ArrayList<>()));
                 break;
-            case 1: //Update a product
+            case 2://Update a product
+
         }
     }
+
     private static int getOption() {
         Scanner scanner = new Scanner(System.in);
         // User should be able to: add, display all of the details, update, delete an item
-
-        return 0;
+        System.out.println("MAIN MENU \n----------------");
+        System.out.println("1.Add items \n2.Display items \n3.Update items \n4.Delete items");
+        System.out.println("Choose an option from above:");
+        return getMenuOption(4);
     }
 
-    private static Product addProduct() {
+    private static int getMenuOption(int limit) {
         Scanner scanner = new Scanner(System.in);
+        String errorMessage = "Incorrect option! Please enter again:";
+        int option = limit + 1;
+        do {
+            if (!scanner.hasNextInt()) {
+                System.out.println(errorMessage);
+                scanner.next();
+            } else {
+                option = scanner.nextInt(); // correct input
+                if (option > limit) {
+                    System.out.println(errorMessage);
+                }
+            }
+        } while (option > limit);
+        return option;
+    }
+
+
+    private static Product addProduct(List<String> shoppingBag) {
+        Scanner scanner = new Scanner(System.in);
+        boolean addMore = true;
+        System.out.println("Choose a product category: " + Arrays.toString(ProductCategory.values()));
+        ProductCategory productCategory = ProductCategory.valueOf(scanner.next());
+        System.out.println("Choose products from the category: " + Data.getInitialProducts());
         System.out.println("Enter the details of the product:");
         System.out.println("Product name:");
         String productName = scanner.next();
         System.out.println("Product price:");
         float price = scanner.nextFloat();
-        System.out.println("Choose a product category: " + Arrays.toString(ProductCategory.values()));
-        ProductCategory productCategory = ProductCategory.valueOf(scanner.next());
+        System.out.println("'" + productName + "' added to the list. Do you want to add more item?");
+        while (addMore) {
+            System.out.println("Enter an item name to be added to the bag: ");
+            String addProduct = scanner.next();
+            System.out.println("'" + productName + "' added to the list. Do you want to add more item?");
+            if (addMore == false) {
+                System.out.println(getMenuOption(scanner.nextInt()));
+            }
+
+            addMore = scanner.nextBoolean();
+        }
 
 
         Product product = new Product();
@@ -87,11 +123,26 @@ public class Main {
         product.setPrice(BigDecimal.valueOf(price));
         product.setProductCategory(productCategory);
 
+
         return product;
     }
 
+
     private static Product updateProduct() {
         //Need to display all the products and then ask user to which product to update.
+        return null;
+    }
+
+    private static Product displayAllDetails() {
+        //Need to display all the products
+        Scanner scanner = new Scanner(System.in);
+
+
+        return null;
+    }
+
+    private static Product deleteItems() {
+        //Need to display all the products
         return null;
     }
 }

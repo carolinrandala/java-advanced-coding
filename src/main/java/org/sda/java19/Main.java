@@ -25,6 +25,8 @@ public class Main {
         List<String> fileLines = Files.readAllLines(absolutePath, StandardCharsets.UTF_8);
         List<Person> dataList = new ArrayList<>();
 
+
+
         for (String fileLine : fileLines) {
             String[] data = fileLine.split(", ");
 
@@ -35,6 +37,8 @@ public class Main {
 
             dataList.add(person);
 
+
+
             /*System.out.println("First name: " + person.getName());
             System.out.println("Surname: " + person.getSurname());
             System.out.println("Phone number: " + person.getPhoneNumber()); */
@@ -43,8 +47,8 @@ public class Main {
                     .sorted(Comparator.comparing(Person::getName))
                     .collect(Collectors.toList())
                     .forEach(person1 -> System.out.println(person));
-           /* List<Person> surnameList = new ArrayList<>();
-            List<Person> phoneNumberList = new ArrayList<>();*/
+
+
 
 
 

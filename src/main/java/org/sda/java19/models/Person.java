@@ -9,7 +9,7 @@ import lombok.ToString;
  */
 @Data
 @ToString
-public class PersonalData {
+public class Person {
     private String name;
     private String surname;
     private String phoneNumber;

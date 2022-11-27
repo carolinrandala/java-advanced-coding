@@ -22,7 +22,7 @@ import java.util.*;
  * “pliers:30”
  * “scissors:+4”
  *
- * @author Vinod John
+ * @author
  */
 public class Main {
     public static void main(String[] args) throws WarehouseNotFoundException {
@@ -47,7 +47,6 @@ public class Main {
 
 
         warehouseService.addWarehouse(warehouse); // Adds new warehouse
-        List<String> shoppingBag = new ArrayList<>();
         productOperations();
     }
 
@@ -59,7 +58,7 @@ public class Main {
 
         switch (option) {
             case 1: //Add a product
-                productService.addProduct(addProduct(new ArrayList<>()));
+                productService.addProduct(addProduct());
                 break;
             case 2://Update a product
 
@@ -94,7 +93,7 @@ public class Main {
     }
 
 
-    private static Product addProduct(List<String> shoppingBag) {
+    private static Product addProduct() {
         Scanner scanner = new Scanner(System.in);
         boolean addMore = true;
         System.out.println("Choose a product category: " + Arrays.toString(ProductCategory.values()));
@@ -105,17 +104,7 @@ public class Main {
         String productName = scanner.next();
         System.out.println("Product price:");
         float price = scanner.nextFloat();
-        System.out.println("'" + productName + "' added to the list. Do you want to add more item?");
-        while (addMore) {
-            System.out.println("Enter an item name to be added to the bag: ");
-            String addProduct = scanner.next();
-            System.out.println("'" + productName + "' added to the list. Do you want to add more item?");
-            if (addMore == false) {
-                System.out.println(getMenuOption(scanner.nextInt()));
-            }
 
-            addMore = scanner.nextBoolean();
-        }
 
 
         Product product = new Product();
@@ -130,12 +119,16 @@ public class Main {
 
     private static Product updateProduct() {
         //Need to display all the products and then ask user to which product to update.
+        Scanner scanner = new Scanner(System.in);
+
         return null;
     }
 
     private static Product displayAllDetails() {
         //Need to display all the products
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Products in the warehouse: ");
+        Data.WAREHOUSE.getProducts();
 
 
         return null;

@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 /**
  * Implementation of Product service
  *
- * @author Vinod John
+ * @author
  */
 public class ProductServiceImpl implements ProductService {
     private final WarehouseService warehouseService = new WarehouseServiceImpl();

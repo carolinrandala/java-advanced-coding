@@ -19,8 +19,8 @@ import java.util.stream.Collectors;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        //Download data from a file and create objects of people based on them (in any way - Regex, String.split ...).
-       /* Path absolutePath = Paths.get("/Users/carolinrandala/Desktop/Learning-java/java-start-basics/java-advanced-coding/src/main/resources/data.txt");
+        /*//Download data from a file and create objects of people based on them (in any way - Regex, String.split ...).
+        Path absolutePath = Paths.get("/Users/carolinrandala/Desktop/Learning-java/java-start-basics/java-advanced-coding/src/main/resources/data.txt");
 
         //Reading file
         List<String> fileLines = Files.readAllLines(absolutePath, StandardCharsets.UTF_8);
@@ -36,8 +36,12 @@ public class Main {
             person.setPhoneNumber(data[2]);
 
             dataList.add(person);
+            System.out.println(dataList);
 
-        */
+
+
+*/
+
 
             //Enter the created objects into Array from the file:
 
@@ -67,6 +71,8 @@ public class Main {
 
         }
     }
+
+
 
 
 

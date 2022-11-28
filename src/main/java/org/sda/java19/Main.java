@@ -61,8 +61,24 @@ public class Main {
                 productService.addProduct(addProduct());
                 break;
             case 2://Update a product
+                productService.updateProduct(updateProduct());
+                break;
+            case 3:
+                //productService.deleteProductByName(deleteItems());
+                break;
+            case 4:
+                displayAllProducts(productService.getAllProducts());
+            case 5:
+                //display summary
+                break;
+            case 6:
+                //sum of products and prices
 
         }
+    }
+
+    private static void displayAllProducts(List<Product> products) {
+        products.forEach(System.out::println);
     }
 
     private static int getOption() {
@@ -120,6 +136,7 @@ public class Main {
     private static Product updateProduct() {
         //Need to display all the products and then ask user to which product to update.
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Which product you wist to update?");
 
         return null;
     }
@@ -128,14 +145,14 @@ public class Main {
         //Need to display all the products
         Scanner scanner = new Scanner(System.in);
         System.out.println("Products in the warehouse: ");
-        Data.WAREHOUSE.getProducts();
+
 
 
         return null;
     }
 
-    private static Product deleteItems() {
-        //Need to display all the products
+    private static Product deleteProduct() {
+        //Need to display all the products and then ask user what products they want to delete
         return null;
     }
 }

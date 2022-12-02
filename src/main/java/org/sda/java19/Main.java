@@ -44,14 +44,14 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        List<Student> studentList = getInitialStudents();
+        List<Student> studentsList = getInitialStudents();
 
         //assignStudentsToGroup();
 
 
     }
 
-    private static List<Trainer> trainerList() {
+    private static List<Trainer> getInitialTrainers() {
         Trainer trainer = new Trainer();
         trainer.setFirstName("Vinod");
         trainer.setLastName("John");
@@ -81,115 +81,116 @@ public class Main {
         Student student1 = new Student();
         student1.setFirstName("Mario");
         student1.setLastName("Tamm");
-        student1.setDateOfBirth(06, 01, 1993);
+        student1.setDateOfBirth(LocalDate.of(1992, 6, 17));
         student1.setHasPreviousJavaKnowledge(true);
 
         Student student2 = new Student();
         student2.setFirstName("Tony");
-        student2.setLastName("Stark");
-        student2.setDateOfBirth(10, 07, 2000);
+        student2.setLastName("Perko");
+        student2.setDateOfBirth(LocalDate.of(2000, 3, 15));
         student2.setHasPreviousJavaKnowledge(true);
 
         Student student3 = new Student();
         student3.setFirstName("Maris");
         student3.setLastName("Rose");
-        student3.setDateOfBirth(8, 02, 1991);
+        student3.setDateOfBirth(LocalDate.of(1990, 11, 10));
         student3.setHasPreviousJavaKnowledge(true);
 
         Student student4 = new Student();
         student4.setFirstName("Peter");
         student4.setLastName("Brooks");
-        student4.setDateOfBirth(9, 02,1990);
+        student4.setDateOfBirth(LocalDate.of(1995, 5, 13));
         student4.setHasPreviousJavaKnowledge(true);
 
         Student student5 = new Student();
         student5.setFirstName("Anna");
         student5.setLastName("Marine");
-        student5.setDateOfBirth(12, 05, 2001);
+        student5.setDateOfBirth(LocalDate.of(1991, 11, 18));
         student5.setHasPreviousJavaKnowledge(true);
 
         Student student6 = new Student();
         student6.setFirstName("Anthony");
         student6.setLastName("Stark");
-        student6.setDateOfBirth(8, 12, 2003);
+        student6.setDateOfBirth(LocalDate.of(2001, 2, 14));
         student6.setHasPreviousJavaKnowledge(true);
 
         Student student7 = new Student();
         student7.setFirstName("Tommy");
         student7.setLastName("Stork");
-        student7.setDateOfBirth(8, 10, 1992);
+        student7.setDateOfBirth(LocalDate.of(1997, 2, 18));
         student7.setHasPreviousJavaKnowledge(true);
 
         Student student8 = new Student();
         student8.setFirstName("Mark");
         student8.setLastName("Doom");
-        student8.setDateOfBirth(06, 11, 2000);
+        student8.setDateOfBirth(LocalDate.of(1995, 12, 7));
         student8.setHasPreviousJavaKnowledge(true);
 
         Student student9 = new Student();
         student9.setFirstName("Liza");
         student9.setLastName("Carvalho");
-        student9.setDateOfBirth(20, 07, 1994);
+        student9.setDateOfBirth(LocalDate.of(2002, 2, 23));
         student9.setHasPreviousJavaKnowledge(true);
 
         Student student10 = new Student();
         student10.setFirstName("Mario");
-        student10.setLastName("Black");
-        student10.setDateOfBirth(12, 8, 1991);
+        student10.setLastName("Suurjärv");
+        student10.setDateOfBirth(LocalDate.of(1999, 10, 10));
         student10.setHasPreviousJavaKnowledge(true);
 
         Student student11 = new Student();
         student11.setFirstName("Andero");
         student11.setLastName("Maar");
-        student11.setDateOfBirth(8, 10, 1993);
+        student11.setDateOfBirth(LocalDate.of(1994, 2, 7));
         student11.setHasPreviousJavaKnowledge(true);
 
         Student student12 = new Student();
         student12.setFirstName("Ann");
-        student12.setLastName("Bloum");
-        student12.setDateOfBirth(10, 10,1997);
+        student12.setLastName("Stiina");
+        student12.setDateOfBirth(LocalDate.of(1990, 3, 15));
         student12.setHasPreviousJavaKnowledge(true);
 
         Student student13 = new Student();
         student13.setFirstName("Hugo");
-        student13.setLastName("Perg");
-        student13.setDateOfBirth(12, 02, 1999);
+        student13.setLastName("Berg");
+        student13.setDateOfBirth(LocalDate.of(2000, 2, 27));
         student13.setHasPreviousJavaKnowledge(true);
 
         Student student14 = new Student();
         student14.setFirstName("Tuuli");
-        student14.setLastName("Kuum");
-        student14.setDateOfBirth(8, 02, 2001);
+        student14.setLastName("Riks");
+        student14.setDateOfBirth(LocalDate.of(1998, 10, 19));
         student14.setHasPreviousJavaKnowledge(true);
 
 
         Student student15 = new Student();
         student15.setFirstName("Marko");
-        student15.setLastName("Loos");
-        student15.setDateOfBirth(8, 10, 2000);
+        student15.setLastName("Saia");
+        student15.setDateOfBirth(LocalDate.of(1999, 2, 23));
         student15.setHasPreviousJavaKnowledge(true);
 
         return List.of(student1, student2, student3, student3, student4, student5, student6, student7, student8, student9, student10, student11, student12, student13, student14, student15);
     }
 
     private static List<Group> getInitialGroup() {
-        Group group = new Group();
-        group.setName("Java19");
-        group.setTrainer(trainerList().get(0));
-
         Group group1 = new Group();
-        group1.setName("Java20");
-        group1.setTrainer(trainerList().get(2));
+        group1.setName("Java19");
+        group1.setTrainer(getInitialTrainers().get(0));
+
 
         Group group2 = new Group();
-        group2.setName("Java21");
-        group2.setTrainer(trainerList().get(1));
+        group2.setName("Java20");
+        group2.setTrainer(getInitialTrainers().get(2));
 
         Group group3 = new Group();
-        group3.setName("Java22");
-        group3.setTrainer(trainerList().get(2));
+        group3.setName("Java21");
+        group3.setTrainer(getInitialTrainers().get(1));
 
-        return List.of(group, group1, group2, group3);
+        Group group4 = new Group();
+        group4.setName("Java22");
+        group4.setTrainer(getInitialTrainers().get(2));
+
+        return List.of(group1, group2, group3, group4);
 
 
     }

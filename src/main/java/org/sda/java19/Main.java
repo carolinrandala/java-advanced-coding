@@ -44,9 +44,11 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        List<Student> studentsList = getInitialStudents();
+        List<Student> studentList = getInitialStudents();
+        List<Trainer> trainerList = getInitialTrainers();
+        List<Group> groupList = getInitialGroups();
 
-        //assignStudentsToGroup();
+        assignStudentsToGroup(groupList);
 
 
     }
@@ -56,16 +58,19 @@ public class Main {
         trainer.setFirstName("Vinod");
         trainer.setLastName("John");
         trainer.setAuthorized(true);
+        trainer.setDateOfBirth(LocalDate.of(1991, 10, 16));
 
         Trainer trainer1 = new Trainer();
         trainer1.setFirstName("Mark");
         trainer1.setLastName("Stark");
         trainer1.setAuthorized(true);
+        trainer1.setDateOfBirth(LocalDate.of(1970, 12, 18));
 
         Trainer trainer2 = new Trainer();
         trainer2.setFirstName("Johnny");
         trainer2.setLastName("Perry");
         trainer2.setAuthorized(true);
+        trainer2.setDateOfBirth(LocalDate.of(1990, 2, 19));
 
         return List.of(trainer, trainer1, trainer2);
 
@@ -172,7 +177,7 @@ public class Main {
         return List.of(student1, student2, student3, student3, student4, student5, student6, student7, student8, student9, student10, student11, student12, student13, student14, student15);
     }
 
-    private static List<Group> getInitialGroup() {
+    private static List<Group> getInitialGroups() {
         Group group1 = new Group();
         group1.setName("Java19");
         group1.setTrainer(getInitialTrainers().get(0));
@@ -196,6 +201,7 @@ public class Main {
     }
 
     private static void assignStudentsToGroup(List<Group> groupList) {
+
 
     }
 }

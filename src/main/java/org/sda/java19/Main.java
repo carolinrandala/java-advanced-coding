@@ -111,7 +111,6 @@ public class Main {
 
     private static Product addProduct() {
         Scanner scanner = new Scanner(System.in);
-        boolean addMore = true;
         System.out.println("Choose a product category: " + Arrays.toString(ProductCategory.values()));
         ProductCategory productCategory = ProductCategory.valueOf(scanner.next());
         System.out.println("Choose products from the category: " + Data.getInitialProducts());
@@ -120,7 +119,6 @@ public class Main {
         String productName = scanner.next();
         System.out.println("Product price:");
         float price = scanner.nextFloat();
-
 
 
         Product product = new Product();
@@ -136,7 +134,14 @@ public class Main {
     private static Product updateProduct() {
         //Need to display all the products and then ask user to which product to update.
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Which product you wist to update?");
+        boolean answer = true;
+        System.out.println("Which product you wist to update? " + " \nProducts: " + Data.getInitialProducts());
+        String productName = scanner.next();
+        System.out.println("Enter quantity:");
+        float quantity = scanner.nextFloat();
+        System.out.println("Your product: " + productName + " is successfully updated " + " \nProduct quantity: " + quantity);
+        System.out.println("Do you wish to return to the main menu?");
+
 
         return null;
     }
@@ -145,7 +150,6 @@ public class Main {
         //Need to display all the products
         Scanner scanner = new Scanner(System.in);
         System.out.println("Products in the warehouse: ");
-
 
 
         return null;

@@ -6,7 +6,10 @@ import org.sda.java19.models.Trainer;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * SDA Scheduler
@@ -44,11 +47,14 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        List<Student> studentList = getInitialStudents();
-        List<Trainer> trainerList = getInitialTrainers();
-        List<Group> groupList = getInitialGroups();
+        //Store all students in a list; all groups in a list; all trainers in a list;
+        List<Student> studentsList = getInitialStudents();
+        List<Trainer> trainersList = getInitialTrainers();
+        List<Group> groupsList = getInitialGroups();
 
-        assignStudentsToGroup(groupList);
+        assignStudentsToGroup(groupsList);
+
+
 
 
     }
@@ -81,7 +87,7 @@ public class Main {
         student.setFirstName("Mari");
         student.setLastName("Laas");
         student.setDateOfBirth(LocalDate.of(1997, 12, 02));
-        student.setHasPreviousJavaKnowledge(true);
+        student.setHasPreviousJavaKnowledge(false);
 
         Student student1 = new Student();
         student1.setFirstName("Mario");
@@ -111,7 +117,7 @@ public class Main {
         student5.setFirstName("Anna");
         student5.setLastName("Marine");
         student5.setDateOfBirth(LocalDate.of(1991, 11, 18));
-        student5.setHasPreviousJavaKnowledge(true);
+        student5.setHasPreviousJavaKnowledge(false);
 
         Student student6 = new Student();
         student6.setFirstName("Anthony");
@@ -129,7 +135,7 @@ public class Main {
         student8.setFirstName("Mark");
         student8.setLastName("Doom");
         student8.setDateOfBirth(LocalDate.of(1995, 12, 7));
-        student8.setHasPreviousJavaKnowledge(true);
+        student8.setHasPreviousJavaKnowledge(false);
 
         Student student9 = new Student();
         student9.setFirstName("Liza");
@@ -201,6 +207,8 @@ public class Main {
     }
 
     private static void assignStudentsToGroup(List<Group> groupList) {
+
+
 
 
     }

@@ -13,6 +13,7 @@ import org.sda.java19.util.Data;
 import java.math.BigDecimal;
 import java.util.*;
 
+
 /**
  * 2. Warehouse
  * a. User should be able to: add, display all of the details, update, delete an item
@@ -64,7 +65,7 @@ public class Main {
                 productService.updateProduct(updateProduct());
                 break;
             case 3:
-                //productService.deleteProductByName(deleteItems());
+                productService.deleteProductByName(String.valueOf(deleteProduct()));
                 break;
             case 4:
                 displayAllProducts(productService.getAllProducts());
@@ -85,9 +86,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         // User should be able to: add, display all of the details, update, delete an item
         System.out.println("MAIN MENU \n----------------");
-        System.out.println("1.Add items \n2.Display items \n3.Update items \n4.Delete items");
+        System.out.println("1.Add product \n2.Update product \n3.Delete product \n4.Display of products \n5.Display summary \n6.Sum of products and prices");
         System.out.println("Choose an option from above:");
-        return getMenuOption(4);
+        return getMenuOption(6);
     }
 
     private static int getMenuOption(int limit) {
@@ -134,29 +135,44 @@ public class Main {
     private static Product updateProduct() {
         //Need to display all the products and then ask user to which product to update.
         Scanner scanner = new Scanner(System.in);
-        boolean answer = true;
+        boolean yes = true;
         System.out.println("Which product you wist to update? " + " \nProducts: " + Data.getInitialProducts());
         String productName = scanner.next();
         System.out.println("Enter quantity:");
         float quantity = scanner.nextFloat();
-        System.out.println("Your product: " + productName + " is successfully updated " + " \nProduct quantity: " + quantity);
+        System.out.println("Your product: " + productName + " is successfully updated " + " \n+" + quantity );
         System.out.println("Do you wish to return to the main menu?");
+        yes = scanner.hasNextBoolean();
+        if(yes == false) {
+            return updateProduct();
+        } else {
+            getOption();
+        }
 
-
-        return null;
-    }
-
-    private static Product displayAllDetails() {
-        //Need to display all the products
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Products in the warehouse: ");
-
-
-        return null;
+        return new Product();
     }
 
     private static Product deleteProduct() {
         //Need to display all the products and then ask user what products they want to delete
+        Scanner scanner = new Scanner(System.in);
+        boolean isDelete = true;
+        Data.getInitialProducts().forEach(System.out::println);
+
+        while(isDelete) {
+            System.out.println("Which product you wish to delete?");
+            System.out.println("Enter a product name:");
+            String deleteItem = scanner.next();
+
+            if(Data.getInitialProducts().contains(deleteItem)) {
+                Data.getInitialProducts().remove(deleteItem);
+                System.out.println("'" + deleteItem + "' is deleted. Do you want to delete more items?");
+            } else {
+                isDelete = scanner.hasNextBoolean();
+            }
+        }
         return null;
     }
-}
+
+
+    }
+

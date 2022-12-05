@@ -57,6 +57,9 @@ public class Main {
 
 
 
+
+
+
     }
 
     private static List<Trainer> getInitialTrainers() {
@@ -207,6 +210,7 @@ public class Main {
     }
 
     private static void assignStudentsToGroup(List<Group> groupList) {
+
 
 
 

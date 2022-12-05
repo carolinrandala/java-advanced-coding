@@ -82,6 +82,8 @@ public class Main {
         products.forEach(System.out::println);
     }
 
+    //private static float getSummaryOfProducts() {}
+
     private static int getOption() {
         Scanner scanner = new Scanner(System.in);
         // User should be able to: add, display all of the details, update, delete an item
@@ -132,7 +134,7 @@ public class Main {
     }
 
 
-    private static Product updateProduct() {
+    private static Product updateProduct() throws WarehouseNotFoundException {
         //Need to display all the products and then ask user to which product to update.
         Scanner scanner = new Scanner(System.in);
         boolean yes = true;
@@ -150,7 +152,11 @@ public class Main {
         }
 
         return new Product();
+
+
     }
+
+
 
     private static Product deleteProduct() {
         //Need to display all the products and then ask user what products they want to delete
